@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2023 | Hexo</title>
+  <title>k8s operator 学习笔记 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一个兴趣甚广的打杂工程师">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2023/index.html">
+  <meta name="description" content="1. k8s operator 是什么？Kubernetes（通常简称为K8s）的 Operator 是一种自动化管理和操作Kubernetes应用程序的方法，它基于自定义资源（Custom Resources）来扩展 Kubernetes 的功能。Operator 的目标是通过编码来捕获和自动化一些复杂的应用程序操作，以减少运维工作的复杂性和错误。 2. k8s operator 的作用是什么？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="k8s operator 学习笔记">
+<meta property="og:url" content="http://example.com/2023/08/20/k8s-operator-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一个兴趣甚广的打杂工程师">
+<meta property="og:description" content="1. k8s operator 是什么？Kubernetes（通常简称为K8s）的 Operator 是一种自动化管理和操作Kubernetes应用程序的方法，它基于自定义资源（Custom Resources）来扩展 Kubernetes 的功能。Operator 的目标是通过编码来捕获和自动化一些复杂的应用程序操作，以减少运维工作的复杂性和错误。 2. k8s operator 的作用是什么？">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-20T01:25:56.000Z">
+<meta property="article:modified_time" content="2023-08-20T01:28:24.229Z">
 <meta property="article:author" content="arno.li">
 <meta property="article:tag" content="Go&#x2F;Python&#x2F;C&#x2F;C++&#x2F;ML&#x2F;DL&#x2F;RL">
 <meta name="twitter:card" content="summary">
@@ -168,86 +170,255 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-k8s-operator-学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      k8s operator 学习笔记
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2023/08/20/k8s-operator-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
         <time datetime="2023-08-20T01:25:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-20</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2023/08/20/k8s-operator-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank">k8s operator 学习笔记</a>
   
-    </h1>
-  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.7k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">9分</span>
+    </span>
+  </span>
+</div>
 
 
-        <div class="article-info info-on-right">
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="1-k8s-operator-是什么？"><a href="#1-k8s-operator-是什么？" class="headerlink" title="1. k8s operator 是什么？"></a>1. k8s operator 是什么？</h2><p>Kubernetes（通常简称为K8s）的 Operator 是一种自动化管理和操作Kubernetes应用程序的方法，它基于自定义资源（Custom Resources）来扩展 Kubernetes 的功能。Operator 的目标是通过编码来捕获和自动化一些复杂的应用程序操作，以减少运维工作的复杂性和错误。</p>
+<h2 id="2-k8s-operator-的作用是什么？"><a href="#2-k8s-operator-的作用是什么？" class="headerlink" title="2. k8s operator 的作用是什么？"></a>2. k8s operator 的作用是什么？</h2><p>Kubernetes Operator的作用是在Kubernetes集群中实现更高级别的自动化和管理，特别是针对那些复杂应用或有特定操作需求的应用程序。以下是Kubernetes Operator的主要作用：</p>
+<ol>
+<li><strong>自动化运维</strong>：Operator可以捕获应用程序的操作流程和运维任务，将其编码成逻辑，并自动执行这些操作。这减少了人工干预的需要，降低了操作风险和错误的可能性，同时提高了应用程序的可靠性。</li>
+<li><strong>复杂应用的管理</strong>：一些应用程序，如数据库、消息队列、缓存系统等，具有复杂的管理需求，例如备份、扩展、故障恢复等。Operator可以实现针对这些应用程序的特定管理操作，简化其部署和维护。</li>
+<li><strong>自定义资源的扩展</strong>：通过自定义资源定义（CRDs），Operator可以扩展Kubernetes的API，引入新的资源类型。这使得操作和管理应用程序可以在更高级别的抽象上进行，而不是依赖于通用的Pod、Service等基本资源。</li>
+<li><strong>状态一致性维护</strong>：Operator会监视自定义资源的状态，并与实际应用程序状态保持一致。如果发现状态不匹配，Operator会采取相应措施来修复状态，确保应用程序始终处于预期状态。</li>
+<li><strong>自动扩展与缩减</strong>：一些应用程序需要根据负载情况进行自动扩展或缩减。Operator可以根据预定义的规则自动调整应用程序的副本数，以满足性能需求。</li>
+<li><strong>故障恢复</strong>：Operator可以定义故障恢复策略，当应用程序出现故障或崩溃时，自动采取措施来恢复应用程序的正常运行。</li>
+<li><strong>版本升级和回滚</strong>：Operator可以支持应用程序的版本升级和回滚，确保应用程序在更新过程中不会中断服务，并且可以在需要时回滚到之前的版本。</li>
+<li><strong>应用程序生命周期管理</strong>：Operator能够管理整个应用程序的生命周期，从创建和部署到维护和删除，使运维更加自动化和便捷。</li>
+</ol>
+<p>总的来说，Kubernetes Operator的作用是为复杂应用程序提供更高级别的自动化管理和操作，减少手动干预，提高可靠性，以及降低运维负担和风险。</p>
+<h2 id="3-k8s-operator-的使用场景"><a href="#3-k8s-operator-的使用场景" class="headerlink" title="3. k8s operator 的使用场景"></a>3. k8s operator 的使用场景</h2><p>当谈到Kubernetes Operator的使用场景时，通常是指那些需要复杂操作和管理的应用程序。下面我将逐步说明几个常见的使用场景，并为每个场景提供具体的示例：</p>
+<p><strong>场景一：数据库管理</strong></p>
+<p><em>步骤一：</em> 部署数据库Operator</p>
+<p>例如，你想在Kubernetes集群中部署一个高可用的数据库，如PostgreSQL或MySQL。这种数据库需要监视、备份、故障恢复等复杂操作。</p>
+<p><em>步骤二：</em> 创建数据库实例</p>
+<p>使用数据库Operator的自定义资源，你可以定义一个数据库实例。这个实例会包含数据库的配置、备份策略和故障恢复策略。</p>
+<p><em>步骤三：</em> 自动备份和恢复</p>
+<p>数据库Operator会根据你在步骤二中定义的策略，自动执行备份操作，并在需要时自动恢复数据库。</p>
+<p><strong>场景二：消息队列管理</strong></p>
+<p><em>步骤一：</em> 部署消息队列Operator</p>
+<p>假设你需要在Kubernetes中管理一个分布式消息队列，如Kafka。这需要处理主题、分区、消费者组等复杂概念。</p>
+<p><em>步骤二：</em> 定义消息队列集群</p>
+<p>使用消息队列Operator的自定义资源，你可以定义一个消息队列集群，包括主题和分区的配置。</p>
+<p><em>步骤三：</em> 动态扩展和收缩</p>
+<p>消息队列Operator会监视消息队列的负载情况，根据预定义的规则动态扩展或收缩分区数，以适应不同的负载。</p>
+<p><strong>场景三：应用程序部署和管理</strong></p>
+<p><em>步骤一：</em> 部署应用程序Operator</p>
+<p>假设你有一个自定义的应用程序，需要特定的配置、依赖项和扩展策略。你可以编写一个应用程序Operator来管理这个应用程序。</p>
+<p><em>步骤二：</em> 定义应用程序</p>
+<p>使用应用程序Operator的自定义资源，你可以定义应用程序的配置、环境变量、扩展策略等。</p>
+<p><em>步骤三：</em> 自动扩展和回滚</p>
+<p>应用程序Operator会根据预定的规则监视应用程序的负载，自动扩展副本数。同时，它还支持应用程序的版本升级和回滚，确保应用程序始终在预期状态下运行。</p>
+<p>这些只是Kubernetes Operator的一些常见使用场景。总的来说，Operator适用于那些需要自动化管理和复杂操作的应用程序，它们可以大大简化运维工作，提高应用程序的可靠性，并减少操作错误的风险。</p>
+<h2 id="4-operator-常用的开发工具"><a href="#4-operator-常用的开发工具" class="headerlink" title="4. operator 常用的开发工具"></a>4. operator 常用的开发工具</h2><p>开发和部署Kubernetes Operator时，有一些常用的工具和框架可以帮助简化开发流程和提高效率。以下是一些经常使用的Operator开发工具和框架：</p>
+<ol>
+<li><strong>Operator SDK</strong>：Operator SDK是一个开发框架，用于创建、测试和部署Kubernetes Operator。它提供了一组命令行工具和API，可以加速Operator的开发过程。Operator SDK支持多种编程语言，包括Go、Python和Java。</li>
+<li><strong>Kubebuilder</strong>：Kubebuilder是另一个用于构建Kubernetes Operator的框架。它使用Go语言，可以帮助开发者生成CRDs、控制器代码以及用于测试和部署的文件。</li>
+<li><strong>Helm</strong>：Helm是一个Kubernetes包管理工具，可以用于定义、安装和管理Kubernetes应用程序。你可以使用Helm创建自己的Operator Chart，将Operator部署为Helm包。</li>
+<li><strong>Kustomize</strong>：Kustomize是一个用于定制Kubernetes资源的工具，它可以帮助你对现有的Kubernetes资源进行修改和扩展。这对于调整已有的Operator资源非常有用。</li>
+</ol>
+<h2 id="5-operator-组成部分"><a href="#5-operator-组成部分" class="headerlink" title="5. operator 组成部分"></a>5. operator 组成部分</h2><p>Kubernetes Operator通常由以下几个核心部分组成，这些部分协同工作以实现自动化的应用程序管理和操作：</p>
+<ol>
+<li><strong>自定义资源定义（CRD）</strong>：CRD是Operator的基础，它定义了一个新的自定义资源类型，该类型表示了你想要管理的应用程序、服务或资源。CRD描述了自定义资源的结构和字段，以及如何进行操作和管理。</li>
+<li><strong>Controller</strong>：Controller是Operator的核心逻辑部分。它是一个控制循环，负责监视Kubernetes集群中的自定义资源对象，并根据资源的状态变化来采取相应的操作。Controller会根据定义的逻辑执行创建、更新、删除等操作，以确保应用程序达到预期状态。</li>
+<li><strong>Operator Logic</strong>：这是实际定义了Operator要执行的操作的部分。Operator Logic根据Controller中的指令执行操作，这些操作可以是创建Kubernetes资源、修改配置、扩展或收缩副本数，执行备份和恢复等等。</li>
+<li><strong>状态同步和修复逻辑</strong>：Operator会持续监视自定义资源的状态，并将其与实际应用程序状态保持一致。如果发现状态不匹配，Operator会采取必要的措施来修复状态，例如重新启动Pod、重新连接服务等。</li>
+<li><strong>事件和日志记录</strong>：Operator通常会生成日志和事件，以便你可以了解Operator的操作、问题和状态。这些事件和日志有助于诊断问题、监视运行情况以及进行故障排除。</li>
+<li><strong>错误处理和故障恢复策略</strong>：Operator应该具备处理错误和故障的策略。这可能涉及到故障检测、自动恢复、回滚操作等，以确保应用程序持续稳定运行。</li>
+<li><strong>配置管理</strong>：Operator通常会包含用于配置应用程序的代码或文件，以及处理环境变量、配置文件等方面的逻辑。</li>
+</ol>
+<p>总之，一个完整的Kubernetes Operator包括自定义资源定义、Controller、Operator Logic、状态同步和修复逻辑、事件和日志记录、错误处理和故障恢复策略等多个部分。这些部分协同工作，使得Operator能够自动管理和操作应用程序，减少运维负担，提高可靠性。</p>
+<h2 id="6-operator-作用就是部署和监控应用程序状态，那么operator-自己本身的状态谁来监控保证呢？"><a href="#6-operator-作用就是部署和监控应用程序状态，那么operator-自己本身的状态谁来监控保证呢？" class="headerlink" title="6. operator 作用就是部署和监控应用程序状态，那么operator 自己本身的状态谁来监控保证呢？"></a>6. operator 作用就是部署和监控应用程序状态，那么operator 自己本身的状态谁来监控保证呢？</h2><p>以下是一些方法，可以用来监控和保证Operator自身的状态：</p>
+<ol>
+<li><strong>健康检查</strong>：你可以为Operator实现健康检查的逻辑，使其定期自检自身的运行状态。这可以包括检查与依赖的服务是否连接正常，是否有错误产生等。</li>
+<li><strong>自监控指标</strong>：在Operator中集成指标收集器，例如Prometheus客户端库，可以定期收集关于Operator自身的指标数据。这些指标可以用来监控Operator的性能和状态。</li>
+<li><strong>事件和日志记录</strong>：Operator应该生成事件和日志，以便记录自身的操作、状态变化和错误信息。这些事件和日志可以帮助你了解Operator是否正常运行以及是否遇到问题。</li>
+<li><strong>自动恢复和故障处理</strong>：如果Operator发现自己处于异常状态，它可以尝试自动恢复。例如，如果Operator的依赖项无法访问，它可以尝试重新连接或重试。</li>
+<li><strong>监控工具</strong>：你可以使用Kubernetes中的监控工具，如Prometheus和Grafana，来监控Operator的状态和性能。通过配置监控仪表板，你可以实时了解Operator的运行情况。</li>
+<li><strong>自动化部署和升级</strong>：确保Operator本身也是以自动化的方式部署和升级的，这有助于减少人工操作的错误，并确保Operator始终运行在最新且稳定的版本。</li>
+</ol>
+<p>综上所述，Operator自身的状态监控和保证是运维的重要一环。通过合适的健康检查、指标收集、日志记录、自动恢复等措施，可以确保Operator在正常运行的同时，也能及时发现和解决问题，从而提高Operator的可靠性和稳定性。</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          arno.li
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://example.com/2023/08/20/k8s-operator-学习笔记/" title="k8s operator 学习笔记" target="_blank">http://example.com/2023/08/20/k8s-operator-学习笔记/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/08/20/k8s-operator-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2023/08/16/hello-world/" class="archive-article-date">
-        <time datetime="2023-08-16T03:34:01.370Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-16</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2023/08/16/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2023/08/16/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -288,8 +459,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
